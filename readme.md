@@ -14,7 +14,7 @@ bower install construct.asset
 
 First configure the format(s) of the assets to be supported (before construct is initiated)
 ```
-construct.input(["obj"]);
+construct.asset(["obj"]);
 ```
 Then use the relevant methods in the Main3D view...
 
