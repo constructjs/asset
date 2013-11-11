@@ -6,7 +6,8 @@
 		// options is an array...
 		options = options || [];
 		//console.log(options);
-
+		// always load THREE.Asset
+		construct.config.deps.push("three.asset");
 		// lookup options
 		if( options.indexOf("obj") > -1 ) construct.config.deps.push("three.obj");
 		if( options.indexOf("bin") > -1 ) construct.config.deps.push("three.bin");
@@ -22,6 +23,9 @@
 	// Dependencies
 	construct.config = Object.extend(construct.config, {
 		"paths": {
+			"three.asset" : [
+				"//raw.github.com/makesites/three-asset/master/build/three.asset"
+			],
 			"three.obj" : [
 				"//rawgithub.com/constructjs/asset/master/deps/three.OBJMTLLoader"
 			],
@@ -30,6 +34,11 @@
 			]
 		},
 		"shim": {
+			"three.asset": {
+				"deps": [
+					"three-js"
+				]
+			},
 			"three.obj": {
 				"deps": [
 					"three-js"
@@ -81,6 +90,7 @@ construct.promise.add(function(){
 	});
 
 	// Helpers
+	// jQuery Three extension for asset.json
 	Three.prototype.fn.webgl.asset = function( options, callback ){
 		// define the group (once)
 		if( !this.groups['asset'] ) this.groups['asset'] = "objects";
@@ -88,9 +98,9 @@ construct.promise.add(function(){
 		// model
 		var self = this;
 
-		loader = new THREE.BinaryLoader( true );
+		var asset = new THREE.Asset( true );
 
-		loader.load( options.src, function ( geometry, materials ) {
+		asset.load( options.src, function ( geometry, materials ) {
 
 			var object = new THREE.Mesh( geometry, new THREE.MeshFaceMaterial(materials) );
 
@@ -100,7 +110,7 @@ construct.promise.add(function(){
 			// save id as name
 			if( options.id ) object.name = options.id;
 
-			self.active.scene.add( object );
+			//self.active.scene.add( object );
 
 			callback( object );
 
