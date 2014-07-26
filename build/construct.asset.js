@@ -24,13 +24,13 @@
 	construct.config = Object.extend(construct.config, {
 		"paths": {
 			"three.asset" : [
-				"//raw.github.com/makesites/three-asset/master/build/three.asset"
+				"//rawgit.com/makesites/three-asset/master/build/three.asset"
 			],
 			"three.obj" : [
-				"//rawgithub.com/constructjs/asset/master/deps/three.OBJMTLLoader"
+				"//rawgit.com/constructjs/asset/master/deps/three.OBJMTLLoader"
 			],
 			"three.bin" : [
-				"//rawgithub.com/constructjs/asset/master/deps/three.BinaryLoader"
+				"//rawgit.com/constructjs/asset/master/deps/three.BinaryLoader"
 			]
 		},
 		"shim": {
