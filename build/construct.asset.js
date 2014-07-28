@@ -114,7 +114,7 @@ construct.promise.add(function(){
 			// add full path if missing
 			if( !_.isURL( src ) ){
 				// get the url from the asset location
-				var url = _.getDir(this.model.url);
+				var url = _.getDir(this.url);
 				src = url + src;
 				if( !_.isURL(url) ){
 					// use the page location
