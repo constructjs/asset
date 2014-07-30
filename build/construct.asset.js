@@ -67,7 +67,7 @@ construct.promise.add(function(){
 	}
 	if( types.indexOf("bin") > -1 ) {
 	}
-
+/*
 	// in case APP.Mesh has already been defined
 	var Main3D = APP.Views.Main3D || APP.View;
 
@@ -77,18 +77,18 @@ construct.promise.add(function(){
 		},
 
 		events: events,
-/*
+
 		initialize: function( options ){
 
 			return Main3D.prototype.initialize.call(this, options);
 		},
-*/
+
 		load: function( objects ){
 			console.log("asset loaded:", objects);
 		}
 
 	});
-
+*/
 	// base model using sources from asset.json
 	APP.Models.Asset = APP.Model.extend({
 		defaults: {
