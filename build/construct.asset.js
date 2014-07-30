@@ -139,8 +139,8 @@ construct.promise.add(function(){
 
 			var object = new THREE.Mesh( geometry, new THREE.MeshFaceMaterial(materials) );
 
-			object.geometry = geometry;
-			object.material =  new THREE.MeshFaceMaterial(materials);
+			//object.geometry = geometry;
+			//object.material =  new THREE.MeshFaceMaterial(materials);
 			//object.material.side = THREE.DoubleSide;
 			// save id as name
 			if( options.id ) object.name = options.id;
