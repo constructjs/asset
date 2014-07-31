@@ -135,19 +135,24 @@ construct.promise.add(function(){
 
 		var asset = new THREE.Asset( true );
 
-		asset.load( options.src, function ( geometry, materials ) {
+		var sources = options.src || [];
+		// split assets is provided as a string
+		if( typeof sources == "string" ) sources = sources.split("|");
 
-			var object = new THREE.Mesh( geometry, new THREE.MeshFaceMaterial(materials) );
+		asset.load( sources, function ( object ) {
 
-			//object.geometry = geometry;
-			//object.material =  new THREE.MeshFaceMaterial(materials);
-			//object.material.side = THREE.DoubleSide;
-			// save id as name
-			if( options.id ) object.name = options.id;
-
-			//self.active.scene.add( object );
-
-			callback( object );
+			//console.log("LOD", LOD);
+			/*
+			for( var i in LOD.objects ){
+				var object = LOD.objects[i];
+				console.log("options.id", options.id);
+				// save id as name
+				//if( options.id ) object.name = options.id;
+				//self.active.scene.add( object );
+				// execute callback for every LOD
+			}
+			*/
+				callback( object );
 
 		});
 
